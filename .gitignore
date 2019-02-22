@@ -1,0 +1,16 @@
+### NodeJS ###
+node_modules/*
+package-lock.json
+
+### IntelliJ IDEA ###
+.idea/*
+*.iws
+*.iml
+*.ipr
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
