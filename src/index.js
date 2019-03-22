@@ -1,4 +1,3 @@
-import "babel-polyfill";
-import cfg from './configurations/custom-general';
-import bot from './services/bot-service';
+import "@babel/polyfill";
+import bot from "./service/bot-service";
 bot.init();
