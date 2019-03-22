@@ -1,5 +1,7 @@
 # alfred telegram bot
 
+[![CircleCI](https://circleci.com/gh/jonathan-sh/alfred-telegram-bot/tree/master.svg?style=svg)](https://circleci.com/gh/jonathan-sh/alfred-telegram-bot/tree/master)
+
 Please, set your telegram bot code in `src/configurations/custom-general.js`.<br />
 You can find in https://telegram.me/botfather.
 

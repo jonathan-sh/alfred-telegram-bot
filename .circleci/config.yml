@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:7.10
+    working_directory: ~/master
+
+    steps: 
+        - checkout
+        
+        - run:
+            name: update-npm
+            command: 'sudo npm install -g npm@latest'
+
+        - restore_cache:
+            key: dependency-cache-{{ checksum "package.json" }}
+
+        - run:
+            name: install-alfred-telegram-bot
+            command: npm install
+
+        - save_cache:
+            key: dependency-cache-{{ checksum "package.json" }}
+            paths:
+              - ./node_modules
+
+        - run:
+            name: build-alfred-telegram-bot
+            command: npm run build
