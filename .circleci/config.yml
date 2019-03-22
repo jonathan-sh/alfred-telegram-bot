@@ -1,24 +1,25 @@
 version: 2
+
+
 jobs:
   build:
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:10
     working_directory: ~/master
 
-    steps: 
-        - checkout
-        - restore_cache:
-            key: dependency-cache-{{ checksum "package.json" }}
+    steps:
+      - checkout
 
-        - run:
-            name: install-alfred-telegram-bot
-            command: npm install
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
 
-        - save_cache:
-            key: dependency-cache-{{ checksum "package.json" }}
-            paths:
-              - ./node_modules
+      - run: npm install
 
-        - run:
-            name: build-alfred-telegram-bot
-            command: npm run build
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: npm run build
